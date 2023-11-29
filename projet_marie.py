@@ -4,6 +4,16 @@ import os
 
 data = pd.read_csv("Womens Clothing E-Commerce Reviews.csv", sep = ",")
 data.head()
+from pprint import pprint
+avis_textuels = data["Review Text"].values.tolist()
+pprint(avis_textuels[:10])
+
+
+# Afficher les dix premiers avis
+# for i, avis in enumerate(avis_textuels[:10]):
+    # print(f"Avis {i+1}: {avis}")
+
+
 
 nb_dpt = data.groupby("Department Name").count()
 nb_dpt
@@ -25,12 +35,12 @@ avis_clean = avis_clean.apply(lambda x: tokenizer.tokenize(str(x)))
 
 
 # Suppression de la ponctuation
-import string
-punct = string.punctuation
-print(punct)
-for pun in punct:
-    avis_clean = avis_clean.replace(pun, ' ')
-print(avis_clean)
+# import string
+# punct = string.punctuation
+# print(punct)
+# for pun in punct:
+#     avis_clean = avis_clean.replace(pun, ' ')
+# print(avis_clean)
 
 # Supprimer la ponctuation
 # import string
